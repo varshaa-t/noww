@@ -6,11 +6,13 @@ import NavColumnTag from "./NavColumnTag"
 import NavbarIcon from "./NavbarIcon";
 import LinkedIn from "../../public/icons/LinkedIn";
 import Image from "next/image";
+import { useAtom } from "jotai";
+import { isOpenState } from "@/jotai/atoms/isOpen";
 
 function Navbar() {
 
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useAtom(isOpenState);
 
     const navBarArray = [
         { text: "About Us" }, 
@@ -24,24 +26,42 @@ function Navbar() {
             setIsScrolled(window.scrollY > 100);
         }
 
-        window.addEventListener("scroll", handleScroll);
+        const handleResize = () => {
+            if(window.innerWidth > 1024){
+                setIsOpen(false);
+            }
+        }
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+        }
     }, []);
 
   return (
-    <nav className={`fixed left-0 right-0 w-full transition-all duration-300 
+    <nav className={`fixed z-20 left-0 right-0 w-full transition-all duration-300 
         ${isScrolled ? "bg-primary-yellow" : "bg-transparent"}`}
     >
+        <div className="hidden lg:flex lg:justify-between lg:items-end lg:py-6 lg:px-24">
+            <Logo isScrolled={isScrolled}/>  
+            <ul className="hidden lg:flex lg:space-x-[10vw] xl:space-x-[13vw]">
+                {navBarArray.map((element, index) => (
+                    <NavColumnTag isScrolled={isScrolled} key={index} text={element.text}/>
+                ))}
+            </ul>          
+        </div>
         {isOpen &&
-            <div className="bg-primary-blue h-screen flex flex-col justify-between px-6 py-4 md:px-10 lg:py-6 lg:px-28">
-                <div className="flex justify-between items-center">
+            <div className="bg-primary-blue h-screen flex flex-col justify-between px-6 py-4 md:px-10 lg:hidden">
+                <div className="flex justify-between items-center lg:hidden">
                     <Logo/>
                     <div 
                         className="relative w-7 h-4 cursor-pointer lg:hidden"
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        <NavbarIcon isOpen={isOpen}/>
+                        <NavbarIcon />
                     </div>
                 </div>
                 <ul className="flex flex-col items-end space-y-6 lg:hidden">
@@ -53,7 +73,7 @@ function Navbar() {
                     <div className="text-xl text-primary-yellow">Follow us</div>
                     <LinkedIn/>
                 </div>
-                <div className="absolute top-[500px] left-0">
+                <div className="absolute top-[500px] left-0 lg:hidden">
                     <Image
                         width={209} 
                         height={198}
@@ -64,18 +84,13 @@ function Navbar() {
             </div>
         }
         {!isOpen &&
-            <div className="flex justify-between items-end px-6 py-4 md:px-10 lg:py-6 lg:px-24">
-                <Logo isScrolled={isScrolled}/>  
-                <ul className="hidden lg:flex lg:space-x-[10vw] xl:space-x-[14vw]">
-                    {navBarArray.map((element, index) => (
-                        <NavColumnTag isScrolled={isScrolled} key={index} text={element.text}/>
-                    ))}
-                </ul>          
+            <div className="flex justify-between items-end px-6 py-4 md:px-10 lg:hidden">
+                <Logo isScrolled={isScrolled}/>          
                 <div 
                     className="relative w-7 h-4 cursor-pointer lg:hidden"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    <NavbarIcon isOpen={isOpen} isScrolled={isScrolled}/>
+                    <NavbarIcon isScrolled={isScrolled}/>
                 </div>
             </div>
         }

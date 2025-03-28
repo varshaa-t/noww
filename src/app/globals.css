@@ -37,3 +37,7 @@ body {
   font-family: "Helvetica Neue";
   src: url("/fonts/helvetica-neue/HelveticaNeueMedium.otf") format("opentype");
 }
+
+@theme{
+  --breakpoint-xs: 500px;
+}

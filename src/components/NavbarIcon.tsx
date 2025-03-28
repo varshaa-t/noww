@@ -1,9 +1,14 @@
+import { isOpenState } from "@/jotai/atoms/isOpen";
+import { useAtom } from "jotai";
+
 type NavbarIconProps = {
-    isOpen: boolean;
     isScrolled?: boolean;
 };
 
-function NavbarIcon({ isOpen, isScrolled }: NavbarIconProps) {
+function NavbarIcon({ isScrolled }: NavbarIconProps) {
+
+    const [isOpen] = useAtom(isOpenState);
+
     return (
         <div className="relative w-7 h-4 flex flex-col justify-between">
             <span className={`absolute w-full h-[3px] transition-all duration-300 
