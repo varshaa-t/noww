@@ -31,11 +31,16 @@ body {
 
 @theme{
   --font-primary: "Helvetica Neue", sans-serif;
+  --font-primary-light: "Helvetica Neue Light", sans-serif;
 }
 
 @font-face {
   font-family: "Helvetica Neue";
   src: url("/fonts/helvetica-neue/HelveticaNeueMedium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Helvetica Neue Light";
+  src: url("/fonts/helvetica-neue/HelveticaNeueLight.otf") format("opentype");
 }
 
 @theme{

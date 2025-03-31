@@ -42,7 +42,7 @@ function Navbar() {
     }, []);
 
   return (
-    <nav className={`fixed z-20 left-0 right-0 w-full transition-all duration-300 
+    <nav className={`fixed z-50 left-0 right-0 w-full transition-all duration-300 
         ${isScrolled ? "bg-primary-yellow" : "bg-transparent"}`}
     >
         <div className="hidden lg:flex lg:justify-between lg:items-end lg:py-6 lg:px-24">
