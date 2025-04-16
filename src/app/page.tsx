@@ -1,4 +1,3 @@
-import Button from "@/components/Button";
 import ExploreSection from "@/components/ExploreSection";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
