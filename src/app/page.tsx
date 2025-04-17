@@ -1,3 +1,4 @@
+import AboutSection from "@/components/AboutSection";
 import ExploreSection from "@/components/ExploreSection";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
@@ -15,6 +16,7 @@ export default function Home() {
       <div>
         <ExploreSection/>
       </div>
+      <AboutSection/>
     </div>
   );
 }
