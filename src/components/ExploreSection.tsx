@@ -53,7 +53,10 @@ function ExploreSection() {
         <div className='py-24 flex flex-col space-y-7 px-8 xs:px-10 text-white lg:px-16 lg:space-y-0 lg:flex-row lg:space-x-10 xl:px-20 2xl:px-24'>
           <div className='bg-dark-green rounded-3xl overflow-hidden flex flex-col lg:flex-row lg:justify-between lg:w-2/3'>
             <div className='px-5 pt-10 flex flex-col pb-10 space-y-10 lg:self-end'>
-                <UpwardRightArrow color='#117640'/>
+                <UpwardRightArrow  
+                    color='#117640'
+                    bgColor='#f9bc52'
+                />
                 <div className='font-semibold tracking-wide text-[32px] leading-tight xs:leading-snug xs:w-[350px] sm:w-[500px] md:text-4xl md:w-[550px] lg:leading-tight lg:w-56 lg:text-4xl xl:text-3xl xl:w-64 2xl:text-4xl 2xl:w-[300px]'>
                     Expert advice, with
                     end-to-end
