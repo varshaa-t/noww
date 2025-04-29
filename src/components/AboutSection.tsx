@@ -8,6 +8,7 @@ import CTASection from './CTASection'
 import FooterSection from './FooterSection'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import AboutLogo from './AboutLogo';
 
 gsap.registerPlugin(useGSAP);
 
@@ -135,26 +136,42 @@ function AboutSection() {
 
     })
 
+    const aboutLogoAnimation = gsap.to(".logo-path", {
+      attr: { fill: "#EDEECE" },
+      scrollTrigger: {
+        trigger: ".sticky",
+        start: "top 50%",
+        end: "bottom top",
+        scrub: true
+      },
+    });
+
     return () => {
       ctxAbout.revert();
+      aboutLogoAnimation.kill();
     }
 
   }, []);
 
   return (
     <div className='bg-primary-blue rounded-t-3xl pb-16 px-6 pt-28 md:px-10 lg:pt-52 lg:px-24'>
-      <div 
-        ref={aboutTextRef}
-        className='flex flex-col pb-20 space-y-16 xs:space-y-24 sm:pb-32 md:pb-60 lg:space-y-96 lg:pb-80 xl:pb-96'
-      >
-        <About
-          title='Client and stakeholder consideration.'
-          text="Experienced business leadership that's driven by fair outcomes."
-        />
-        <About 
-          title='People are your greatest business asset.'
-          text='Invest in your people, work with us to create an environment for them to thrive.'
-        />
+      <div className='flex justify-between items-start'>
+        <div 
+          ref={aboutTextRef}
+          className='flex flex-col pb-20 space-y-16 xs:space-y-24 sm:pb-32 md:pb-60 lg:space-y-96 lg:pb-80 xl:pb-96'
+        >
+          <About
+            title='Client and stakeholder consideration.'
+            text="Experienced business leadership that's driven by fair outcomes."
+          />
+          <About 
+            title='People are your greatest business asset.'
+            text='Invest in your people, work with us to create an environment for them to thrive.'
+          />
+        </div>
+        <div className='sticky top-36 hidden lg:block'>
+          <AboutLogo/>
+        </div>
       </div>
       <div className='flex flex-col justify-between space-y-8 pb-14 lg:flex-row lg:items-end lg:space-y-0'>
         <div 
