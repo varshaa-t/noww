@@ -1,8 +1,20 @@
 import { FaArrowDownLong } from "react-icons/fa6";
 
-function DownArrow() {
+type DownArrowProps = {
+  page: "landing" | "about" | "services" | "process";
+}
+
+const pageClasses = {
+  "landing": "text-primary-yellow",
+  "about": "text-primary-blue",
+  "services": "text-primary-yellow",
+  "process": "text-primary-blue"
+}
+
+function DownArrow({ page }: DownArrowProps) {
+
   return (
-    <FaArrowDownLong className="text-2xl"/>
+    <FaArrowDownLong className={`text-2xl ${pageClasses[page]}`}/>
   )
 }
 

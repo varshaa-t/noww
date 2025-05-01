@@ -105,7 +105,9 @@ function HeroSection() {
           ref={heroArrowRef} 
           className="hidden lg:block"
         >
-          <DownArrow/>
+          <DownArrow
+            page="landing"
+          />
         </div>
       </div>
     </div>
