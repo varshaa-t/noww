@@ -21,7 +21,7 @@ function CommonHeroSection({ pageTitle, title, paraTitle, paraText, src, alt }: 
                 <div className='flex flex-col justify-between text-primary-blue space-y-14 md:space-y-0 xl:space-y-24 2xl:space-y-0'>
                     <div className='flex flex-col space-y-20'>
                         <div className='font-primary-light text-lg'>{pageTitle}</div>
-                        <div className='font-semibold tracking-wide text-5xl w-60 leading-14 xs:w-auto sm:w-[450px] md:text-[64px] md:w-80 md:leading-16 lg:w-80 xl:w-[500px] 2xl:w-[550px] 2xl:leading-20'>{title}</div>
+                        <div className='font-semibold tracking-wide text-5xl w-60 leading-14 xs:w-auto sm:w-[450px] md:text-[64px] md:w-80 md:leading-16 lg:w-80 xl:w-[550px] 2xl:w-[550px] 2xl:leading-20'>{title}</div>
                     </div>
                     <div className='flex flex-col space-y-4 font-primary-light tracking-wide text-[18px]'>
                         <div>{paraTitle}</div>
