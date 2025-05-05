@@ -19,7 +19,7 @@ function OurStorySection() {
                 <div className='tracking-wide font-bold text-4xl w-[270px] leading-11 xs:w-auto sm:w-96 sm:leading-11 md:w-72 lg:text-5xl lg:w-[350px] lg:leading-14 xl:w-lg'>Placing people before property</div>
             </div>
             <div className='flex flex-col space-y-6 md:text-lg'>
-                <div className='md:w-80 lg:w-96 xl:w-[500px] 2xl:w-[600px]'>"A deal is only done if you have two willing parties. If you approach the negotiations in such a way that the other party won’t come to the table, you’re not going to get anywhere."</div>
+                <div className='md:w-80 lg:w-96 xl:w-[500px] 2xl:w-[600px]'>&quot;A deal is only done if you have two willing parties. If you approach the negotiations in such a way that the other party won’t come to the table, you’re not going to get anywhere.&quot;</div>
                 <div className='flex flex-col space-y-5'>
                     {textArray.map((text, index) => (
                         <div key={index}>
