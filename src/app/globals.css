@@ -27,6 +27,8 @@ body {
   --color-primary-blue: #122a5b;
   --color-dark-green: #117640;
   --color-medium-yellow: #f9bc52;
+  --color-light-green: #127640;
+  --color-light-pink: #e79e98;
 }
 
 @theme{

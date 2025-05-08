@@ -7,6 +7,7 @@ import CommonHeroLogo from './CommonHeroLogo';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { usePathname } from 'next/navigation';
 
 type CommonHeroProps = {
     pageTitle: string;
@@ -28,6 +29,8 @@ function CommonHeroSection({ pageTitle, title, paraTitle, paraText, src, alt }: 
     const commonHeroImageRef = useRef<HTMLImageElement | null>(null);
     const commonHeroLogoRef = useRef<HTMLDivElement | null>(null);
     const commonHeroArrowRef = useRef<HTMLDivElement | null>(null);
+
+    const path = usePathname();
 
     useGSAP(() => {
         if(!commonHeroRef.current || !pageTitleRef.current|| !commonHeroTitleRef.current || !commonHeroTextRef.current || !commonHeroImageRef.current || !commonHeroLogoRef.current || !commonHeroArrowRef.current) return;
@@ -88,7 +91,7 @@ function CommonHeroSection({ pageTitle, title, paraTitle, paraText, src, alt }: 
         >
             <div className='flex flex-col space-y-12'>
                 <div className='flex flex-col justify-between space-y-20 md:space-x-20 md:space-y-0 md:flex-row 2xl:space-x-4'>
-                    <div className='flex flex-col justify-between text-primary-blue space-y-14 md:space-y-[5vw] lg:space-y-[10vw] xl:space-y-[20vw] 2xl:space-y-0'>
+                    <div className={`flex flex-col justify-between space-y-14 ${path == "/services" ? "text-primary-yellow" : "text-primary-blue"} md:space-y-[5vw] lg:space-y-[10vw] xl:space-y-[20vw] 2xl:space-y-0`}>
                         <div className='flex flex-col space-y-20'>
                             <div 
                                 ref={pageTitleRef} 
@@ -134,18 +137,14 @@ function CommonHeroSection({ pageTitle, title, paraTitle, paraText, src, alt }: 
                     ref={commonHeroArrowRef}
                     className='self-end hidden md:block'
                 >
-                    <DownArrow
-                        page='about'
-                    />
+                    <DownArrow/>
                 </div>
             </div>
             <div 
                 ref={commonHeroLogoRef}
                 className='absolute bottom-0 right-0 translate-x-20 -translate-y-32 md:translate-x-24 md:-translate-y-40 lg:translate-x-44 lg:-translate-y-80 xl:translate-x-44 xl:-translate-y-72 2xl:translate-x-36 2xl:-translate-y-56'
             >
-                <CommonHeroLogo
-                    page='about'
-                />
+                <CommonHeroLogo/>
             </div>
         </div>
     )
