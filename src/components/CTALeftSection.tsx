@@ -75,6 +75,7 @@ function CTALeftSection() {
           <Button
               variant='primary'
               text='Join the team'
+              arrowType='primary'
           />
       </div>
     </div>

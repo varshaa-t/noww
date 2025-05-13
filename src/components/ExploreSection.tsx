@@ -194,6 +194,7 @@ function ExploreSection() {
                 <Button
                     text='Explore our services'
                     variant='primary'
+                    arrowType='primary'
                 />
             </div>
         </div>
@@ -251,6 +252,7 @@ function ExploreSection() {
                     <Button
                         text='Explore our services'
                         variant='secondary'
+                        arrowType='primary'
                     />
                 </div>
             </div>

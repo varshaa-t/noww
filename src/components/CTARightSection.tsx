@@ -79,6 +79,7 @@ function CTARightSection() {
             <Button
                 variant='primary'
                 text='Contact us today'
+                arrowType='primary'
             />
         </div>
         <div className='absolute bottom-12 right-8 xs:bottom-12 xs:right-16 sm:bottom-12 sm:right-16 md:bottom-12 md:right-16 lg:right-16 lg:bottom-14 xl:right-16 xl:bottom-14 2xl:bottom-16 2xl:right-16'>

@@ -20,6 +20,7 @@ function WorkSection({ title, text, src, alt, heading }: WorkSectionProps) {
             <Button
                 variant='primary'
                 text='Work with us'
+                arrowType='primary'
             />
         </div>
         <div className='self-center lg:self-auto'>

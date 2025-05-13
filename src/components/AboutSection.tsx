@@ -200,6 +200,7 @@ function AboutSection() {
           <Button
             variant='secondary'
             text='Our approach'
+            arrowType='primary'
           />
         </div>
       </div>
