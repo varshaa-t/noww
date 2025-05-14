@@ -8,20 +8,35 @@ type WorkSectionProps = {
     src: string;
     alt: string;
     heading: "power" | "protect";
+    variant: "primary" | "secondary";
 }
 
-function WorkSection({ title, text, src, alt, heading }: WorkSectionProps) {
+const variantClasses = {
+    "primary": "text-primary-blue",
+    "secondary": "text-white"
+}
+
+function WorkSection({ title, text, src, alt, heading, variant }: WorkSectionProps) {
+
+    const primaryType = variant === "primary";
 
   return (
-    <div className={`flex flex-col space-y-12 ${heading == "power" ? "md:flex-row" : "md:flex-row-reverse"} md:flex-row md:space-y-0 justify-between text-primary-blue px-10 md:px-12 lg:px-24`}>
+    <div className={`flex flex-col space-y-12 ${heading == "power" ? "md:flex-row" : "md:flex-row-reverse"} md:flex-row md:space-y-0 justify-between px-10 ${variantClasses[variant]} md:px-12 lg:px-24`}>
         <div className={`flex flex-col space-y-5 self-center ${heading == "protect" && "lg:relative lg:left-[2vw] xl:left-0"}`}>
             <div className='text-4xl font-bold tracking-wide md:w-[40vw] lg:leading-14 lg:w-[30vw] lg:text-5xl xl:w-auto'>{title}</div>
             <div className='font-primary-light text-lg md:w-[40vw] xl:tracking-wide'>{text}</div>
-            <Button
-                variant='primary'
-                text='Work with us'
-                arrowType='primary'
-            />
+            {primaryType ?
+                <Button
+                    variant='primary'
+                    text='Work with us'
+                    arrowType='primary'
+                /> :
+                <Button
+                    variant='secondary'
+                    text='Work with us'
+                    arrowType='primary'
+                />
+            }
         </div>
         <div className='self-center lg:self-auto'>
             <Image
