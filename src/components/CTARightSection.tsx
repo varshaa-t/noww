@@ -52,12 +52,12 @@ function CTARightSection() {
   return (
     <div 
         ref={ctaRightRef}
-        className='relative bg-primary-yellow text-primary-blue rounded-3xl flex py-16 px-4 h-[500px] xs:px-16 xs:h-[600px] sm:h-[550px] lg:w-[50vw] lg:h-[650px] xl:h-[550px]'
+        className='relative bg-primary-yellow text-primary-blue rounded-3xl flex pt-6 px-6 h-[500px] xs:px-16 xs:pt-16 xs:pb-16 xs:h-[600px] sm:h-[550px] lg:w-[50vw] lg:h-[650px] xl:h-[550px]'
     >
         <div className='flex flex-col space-y-6'>
             <div 
                 ref={ctaRightTextRef}
-                className='font-bold tracking-wide leading-12 text-[32px] w-80 md:w-96 md:text-[40px] lg:leading-14 xl:leading-16 lg:w-60 lg:text-5xl xl:w-[450px]'
+                className='font-bold tracking-wide text-[32px]  leading-9 xs:w-80 md:leading-12 md:w-96 md:text-[40px] lg:leading-14 xl:leading-16 lg:w-64 lg:text-5xl xl:w-[450px]'
             >
                 {`Ready to chat? Start your journey.`
                 .split("\n").map((line, index) => (
@@ -66,7 +66,7 @@ function CTARightSection() {
                         .split(" ").map((word, i) => (
                             <span
                                 key={i}
-                                className='word inline-block mr-4'
+                                className='word inline-block mr-3 2xl:mr-4'
                             >
                                 {word}
                             </span>
