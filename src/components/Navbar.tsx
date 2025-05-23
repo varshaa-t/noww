@@ -60,8 +60,11 @@ function Navbar() {
             </Link>
             <ul className="hidden lg:flex lg:space-x-[10vw] xl:space-x-[13vw]">
                 {navBarArray.map((element, index) => (
-                    <Link href={element.route}>
-                        <NavColumnTag isScrolled={isScrolled} key={index} text={element.text}/>
+                    <Link 
+                        key={index}
+                        href={element.route}
+                    >
+                        <NavColumnTag isScrolled={isScrolled} text={element.text}/>
                     </Link>
                 ))}
             </ul>          
@@ -81,8 +84,11 @@ function Navbar() {
                 </div>
                 <ul className="flex flex-col items-end space-y-6 lg:hidden">
                     {navBarArray.map((element, index) => (
-                        <Link href={element.route}>
-                            <NavColumnTag key={index} text={element.text}/>
+                        <Link
+                            key={index}  
+                            href={element.route}
+                        >
+                            <NavColumnTag text={element.text}/>
                         </Link>
                     ))}
                 </ul>
