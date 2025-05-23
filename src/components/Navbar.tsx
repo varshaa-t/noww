@@ -72,7 +72,10 @@ function Navbar() {
         {isOpen &&
             <div className="bg-primary-blue h-screen flex flex-col justify-between px-6 py-4 md:px-10 lg:hidden">
                 <div className="flex justify-between items-center lg:hidden">
-                    <Link href={'/'}>
+                    <Link 
+                        href={'/'}
+                        onClick={() => setIsOpen(false)}
+                    >
                         <Logo/>
                     </Link>
                     <div 
@@ -87,6 +90,7 @@ function Navbar() {
                         <Link
                             key={index}  
                             href={element.route}
+                            onClick={() => setIsOpen(false)}
                         >
                             <NavColumnTag text={element.text}/>
                         </Link>
