@@ -8,6 +8,7 @@ import LinkedIn from "../../public/icons/LinkedIn";
 import Image from "next/image";
 import { useAtom } from "jotai";
 import { isOpenState } from "@/jotai/atoms/isOpen";
+import Link from "next/link";
 
 function Navbar() {
 
@@ -15,10 +16,18 @@ function Navbar() {
     const [isOpen, setIsOpen] = useAtom(isOpenState);
 
     const navBarArray = [
-        { text: "About Us" }, 
-        { text: "Services" },
-        { text: "Our Approach" },
-        { text: "Contact" } 
+        { text: "About Us",
+          route: "/about"
+        }, 
+        { text: "Services", 
+          route: "/services"
+        },
+        { text: "Our Approach",
+          route: "/process"
+        },
+        { text: "Contact", 
+          route: "/contact"
+        } 
     ]
 
     useEffect(() => {
@@ -46,17 +55,23 @@ function Navbar() {
         ${isScrolled ? "bg-primary-yellow" : "bg-transparent"}`}
     >
         <div className="hidden lg:flex lg:justify-between lg:items-end lg:py-6 lg:px-24">
-            <Logo isScrolled={isScrolled}/>  
+            <Link href={'/'}>
+                <Logo isScrolled={isScrolled}/>  
+            </Link>
             <ul className="hidden lg:flex lg:space-x-[10vw] xl:space-x-[13vw]">
                 {navBarArray.map((element, index) => (
-                    <NavColumnTag isScrolled={isScrolled} key={index} text={element.text}/>
+                    <Link href={element.route}>
+                        <NavColumnTag isScrolled={isScrolled} key={index} text={element.text}/>
+                    </Link>
                 ))}
             </ul>          
         </div>
         {isOpen &&
             <div className="bg-primary-blue h-screen flex flex-col justify-between px-6 py-4 md:px-10 lg:hidden">
                 <div className="flex justify-between items-center lg:hidden">
-                    <Logo/>
+                    <Link href={'/'}>
+                        <Logo/>
+                    </Link>
                     <div 
                         className="relative w-7 h-4 cursor-pointer lg:hidden"
                         onClick={() => setIsOpen(!isOpen)}
@@ -66,7 +81,9 @@ function Navbar() {
                 </div>
                 <ul className="flex flex-col items-end space-y-6 lg:hidden">
                     {navBarArray.map((element, index) => (
-                        <NavColumnTag key={index} text={element.text}/>
+                        <Link href={element.route}>
+                            <NavColumnTag key={index} text={element.text}/>
+                        </Link>
                     ))}
                 </ul>
                 <div className="flex items-center space-x-4 self-end lg:hidden">
@@ -85,7 +102,9 @@ function Navbar() {
         }
         {!isOpen &&
             <div className="flex justify-between items-end px-6 py-4 md:px-10 lg:hidden">
-                <Logo isScrolled={isScrolled}/>          
+                <Link href={'/'}>
+                    <Logo isScrolled={isScrolled}/>          
+                </Link>
                 <div 
                     className="relative w-7 h-4 cursor-pointer lg:hidden"
                     onClick={() => setIsOpen(!isOpen)}
