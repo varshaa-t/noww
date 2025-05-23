@@ -1,4 +1,5 @@
-import CapabilityCard from '@/components/CapabilityCard'
+import CapabilityCardContainer from '@/components/CapabilityCardContainer'
+import CapabilityTitle from '@/components/CapabilityTitle'
 import CommonHeroSection from '@/components/CommonHeroSection'
 import CTASection from '@/components/CTASection'
 import FooterSection from '@/components/FooterSection'
@@ -7,49 +8,7 @@ import WorkSection from '@/components/WorkSection'
 import Image from 'next/image'
 import React from 'react'
 
-type CardType = {
-  title: string;
-  number: string;
-  variant: "filled" | "outlined";
-  texts: string[];
-}
-
 function ServicesPage() {
-
-  const cards: CardType[] = [
-    {
-      title: "Connect",
-      number: "01",
-      variant: "filled",
-      texts: [
-        "Time to renew your lease?",
-        "Need bigger work premises?",
-        "Looking to secure a commercial space?",
-        "Upgrading your workplace strategy?"
-      ]
-    },
-    {
-      title: "Engage",
-      number: "02",
-      variant: "filled",
-      texts: [
-        "We understand your specific requirements",
-        "We negotiate on your behalf",
-        "Let us project manage your move",
-        "Our approach will align with your business objectives"
-      ]
-    },
-    {
-      title: "Deliver",
-      number: "03",
-      variant: "outlined",
-      texts: [
-        "We'll bring your workspace to life",
-        "We can organise your move",
-        "We'll secure premises that are future proof for your organisation"
-      ]
-    },
-  ]
 
   return (
     <div className='bg-primary-yellow'>
@@ -94,18 +53,8 @@ function ServicesPage() {
         />
       </div>
       <div className='bg-primary-blue rounded-t-3xl'>
-        <div className='pt-32 tracking-wide text-center text-primary-yellow text-4xl pb-12 lg:pb-16 lg:text-5xl'>Our Capability</div>
-        <div className='px-10 flex flex-col justify-between space-y-4 pb-28 md:pb-40 md:px-12 lg:px-24 lg:flex-row lg:space-x-6 lg:space-y-0'>
-          {cards.map((card, index) => (
-            <CapabilityCard
-              key={index}
-              title={card.title}
-              number={card.number}
-              variant={card.variant}
-              texts={card.texts}
-            />
-          ))}
-        </div>
+        <CapabilityTitle/>
+        <CapabilityCardContainer/>
         <div className='pb-20 md:pb-40'>
           <WorkSection
             title='Position your people'
