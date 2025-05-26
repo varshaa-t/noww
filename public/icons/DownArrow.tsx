@@ -6,7 +6,7 @@ function DownArrow() {
   const path = usePathname();
 
   return (
-    <FaArrowDownLong className={`text-2xl ${(path == "/" || "/services") ? "text-primary-yellow" : "text-primary-blue"}`}/>
+    <FaArrowDownLong className={`text-2xl ${(path === "/" || path === "/services") ? "text-primary-yellow" : "text-primary-blue"}`}/>
   )
 }
 

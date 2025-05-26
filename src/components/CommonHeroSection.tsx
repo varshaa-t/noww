@@ -129,7 +129,7 @@ function CommonHeroSection({ pageTitle, title, paraTitle, paraText, src, alt }: 
                             width={616}
                             height={714}
                             ref={commonHeroImageRef}
-                            className='rounded-3xl h-full object-cover lg:w-lg 2xl:w-auto'
+                            className='rounded-3xl object-cover w-full md:h-[600px] lg:w-lg lg:h-[600px] xl:h-[700px] 2xl:w-auto'
                         />
                     </div>
                 </div>
